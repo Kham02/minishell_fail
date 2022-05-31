@@ -51,11 +51,6 @@ size_t  size_list(void);
 char    *get_var_envp(char *envp);
 char    *get_val_envp(char *envp);
 char    *get_val_shlvl(char *envp);
-// drop in Libft from ..\minishell\utils_envp.c
-int     ft_strcmp(char *s1, char *s2);
-//
-
-
 
 
 

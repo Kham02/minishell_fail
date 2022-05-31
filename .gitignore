@@ -1,2 +1,5 @@
 
 .vscode/settings.json
+.vscode/dryrun.log
+.vscode/configurationCache.log
+.vscode/targets.log
