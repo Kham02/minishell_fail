@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minishell.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/04 13:50:27 by estrong           #+#    #+#             */
+/*   Updated: 2022/06/04 14:28:36 by estrong          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MINISHELL_H
 #define MINISHELL_H
 
@@ -21,36 +33,41 @@
 # include <curses.h>
 # include <term.h>
 
-//########### Global_variable ###########
+#include "Libft/libft.h"
 
-t_info  info;
+# define SHCL "\x1b[32m"
 
 //################# STR #################
 
-typedef struct s_info
-{
-	char    **av;
-    t_envp  *envp;
-}t_info;
-
 typedef struct s_envp
 {
-    size_t          order;
-    char            *variable;
-    char            *val;
-    struct s_envp   *next;
+	size_t			order;
+	char			*variable;
+	char			*val;
+	struct s_envp	*next;
 }t_envp;
+
+typedef struct s_info
+{
+	char			**history;
+	char			*str;
+	struct s_envp	*envp;
+}t_info;
+
+//########### Global_variable ###########
+
+t_info	info;
 
 //################# FUN #################
 
 /*~~~~~~~~~~~ pars_envp ~~~~~~~~~~~*/
-int     envp_to_lst(char **envp);
-void    list_add_back_envp(t_envp *envp, t_envp *new);
-t_envp  list_new_envp(char *envp);
-size_t  size_list(void);
-char    *get_var_envp(char *envp);
-char    *get_val_envp(char *envp);
-char    *get_val_shlvl(char *envp);
+int		envp_to_lst(char **envp);
+void	list_add_back_envp(t_envp *envp, t_envp *new);
+t_envp	*list_new_envp(char *envp);
+size_t	size_list(void);
+char	*get_var_envp(char *envp);
+char	*get_val_envp(char *envp);
+char	*get_val_shlvl(char *envp);
 
 
 

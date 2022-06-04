@@ -1,12 +1,24 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: estrong <estrong@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/06/04 13:50:44 by estrong           #+#    #+#              #
+#    Updated: 2022/06/04 14:54:01 by estrong          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME	=	minishell
 
 #NAME_B	= 
 
-HEAD 	= minishell.h
+HEAD 	= hdrs/minishell.h
 
 #HEAD_B	= 
 
-LIST	=	
+LIST	=	main.c	envp_to_list.c	utils_envp.c	
 
 #LIST_B	=	
 
