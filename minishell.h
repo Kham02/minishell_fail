@@ -6,12 +6,14 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 13:50:27 by estrong           #+#    #+#             */
-/*   Updated: 2022/06/04 14:28:36 by estrong          ###   ########.fr       */
+/*   Updated: 2022/06/04 18:27:09 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 #define MINISHELL_H
+
+#include "Libft/libft.h"
 
 //################# INC #################
 
@@ -33,7 +35,6 @@
 # include <curses.h>
 # include <term.h>
 
-#include "Libft/libft.h"
 
 # define SHCL "\x1b[32m"
 
@@ -69,6 +70,6 @@ char	*get_var_envp(char *envp);
 char	*get_val_envp(char *envp);
 char	*get_val_shlvl(char *envp);
 
-
+int		t_strcmp(char *s1, char *s2);
 
 #endif

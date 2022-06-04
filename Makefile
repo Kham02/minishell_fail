@@ -6,48 +6,42 @@
 #    By: estrong <estrong@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/04 13:50:44 by estrong           #+#    #+#              #
-#    Updated: 2022/06/04 14:54:01 by estrong          ###   ########.fr        #
+#    Updated: 2022/06/04 18:27:56 by estrong          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	minishell
+NAME = minishell
 
-#NAME_B	= 
+HDRS	=	minishell.h
 
-HEAD 	= hdrs/minishell.h
+# LIB_NAME = /Users/estrong/.brew/Cellar/readline/8.1.2/lib/libreadline.a
 
-#HEAD_B	= 
+# NAME_B = philo_bonus
 
-LIST	=	main.c	envp_to_list.c	utils_envp.c	
+CC = cc
+# gcc -fsanitize=thread флаг для теста потока
 
-#LIST_B	=	
+CFLAGS = -Wall -Wextra -Werror -I$(HDRS)
 
-OBJ = $(patsubst %.c,%.o,$(LIST))
+RM = rm -f
 
-#OBJ_B = $(patsubst %.c,%.o, $(LIST_B))
+FILES = main.c	envp_to_list.c	utils_envp.c
 
-FLAGS = -Wall -Wextra -Werror
+OBJS = $(FILES:%.c=%.o)
 
-all : $(NAME)
+$(NAME): $(OBJS) $(HDRS)
+	$(MAKE) -C ./Libft
+	$(CC) $(CFLAGS) $(OBJS) -lreadline -ltermcap -g -L/Users/estrong/.brew/Cellar/readline/8.1.2/lib/ -I/Users/estrong/.brew/Cellar/readline/8.1.2/include Libft/libft.a -o $(NAME)
+# printf()
 
-$(NAME) : $(OBJ) $(HEAD)
-	make -C ./libft
-	cc -c ${FLAGS} ${LIST} -I libft/
-# gcc -g -c ${LIST} -I libft/
-	cc ${OBJ} libft/libft.a -o ${NAME} 
+all: $(NAME)
 
-#bonus : $(OBJ_B) $(HEAD_B)
-#	make -C ./libft
-# gcc -c ${FLAGS} ${LIST_B} -I libft/
-#	gcc ${OBJ_B} libft/libft.a -o ${NAME_B}
-# @rm -f *.o
+clean:
+	$(RM) $(OBJS)
 
-clean :
-	rm -f $(OBJ)
-	make clean -C ./libft
+fclean: clean
+	$(RM) $(NAME)
 
-fclean : clean
-	rm -f $(NAME)
-	make fclean -C ./libft
+re: fclean all
 
-re : fclean all
+.PHONY:all clean fclean re

@@ -6,7 +6,7 @@
 #    By: estrong <estrong@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/05 11:35:47 by estrong           #+#    #+#              #
-#    Updated: 2022/03/12 15:47:42 by estrong          ###   ########.fr        #
+#    Updated: 2022/06/04 18:19:52 by estrong          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ LIST =	ft_isalnum.c	ft_isalpha.c	ft_isascii.c	\
 		ft_striteri.c	\
 		ft_lstnew.c		ft_lstadd_front.c	ft_lstsize.c	\
 		ft_lstlast.c	ft_lstadd_back.c	ft_lstdelone.c	\
-		ft_lstclear.c	ft_lstiter.c		ft_lstmap.c
+		ft_lstclear.c	ft_lstiter.c		ft_lstmap.c		\
+		ft_strcmp.c
 
 HEADER	=	libft.h
 
